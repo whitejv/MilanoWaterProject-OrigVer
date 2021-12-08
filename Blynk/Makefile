@@ -1,14 +1,15 @@
-
-
-
-#Set any compiler flags you want to use (e.g. -I/usr/include/somefolder `pkg-config --cflags gtk+-3.0` ), or leave blank
-CFLAGS = -I../../include -I../../../paho.mqtt.c-master/src -I../../../blynk-library/src -I../../../blynk-library/linux -L../../lib -L../../../blynk-library -L../../../blynk-library/linux -lwiringPi
+# 
+# To build on RaspberryPi:
+# 1. Install WiringPi: http://wiringpi.com/download-and-install/
+# 2. Run:
+#    make target=raspberry
+#    sudo blynk --token=YourAuthToken
+#
 
 CC ?= gcc
 CXX ?= g++
-CXXFLAGS += -I ../src/ -I ./ -DLINUX -I../../include -I../../../paho.mqtt.c-master/src -I../../../blynk-library/src -I../../../blynk-library/linux -L../../lib -L../../../blynk-library -L../../../blynk-library/linux -lwiringPi
-
-LDFLAGS += -lrt -lpthread -L../../lib  -lpaho-mqtt3c
+CXXFLAGS += -I ../../../blynk-library/linux -I ../../../blynk-library/src -I ./ -DLINUX
+LDFLAGS += -lrt -lpthread -lpaho-mqtt3c
 
 ifeq ($(build),debug)
 	CXXFLAGS += -c -g2 -O0 \
@@ -50,9 +51,9 @@ ifeq ($(target),raspberry)
 endif
 
 SOURCES=main.cpp \
-	BlynkDebug.cpp \
-	BlynkHandlers.cpp \
-	BlynkTimer.cpp
+	./utility/BlynkDebug.cpp \
+	./utility/BlynkHandlers.cpp \
+	./utility/BlynkTimer.cpp 
 
 OBJECTS=$(SOURCES:.cpp=.o)
 EXECUTABLE=../bin/blynk

@@ -7,13 +7,13 @@
  * @brief
  */
 
-//#define BLYNK_DEBUG
+#define BLYNK_DEBUG
 #define BLYNK_PRINT stdout
-#ifdef RASPBERRY
+//#ifdef RASPBERRY
   #include <BlynkApiWiringPi.h>
-#else
-  #include <BlynkApiLinux.h>
-#endif
+//#else
+//  #include <BlynkApiLinux.h>
+//#endif
 #include <BlynkSocket.h>
 #include <BlynkOptionsParser.h>
 
