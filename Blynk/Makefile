@@ -8,7 +8,7 @@
 
 CC ?= gcc
 CXX ?= g++
-CXXFLAGS += -I ../../../blynk-library/linux -I ../../../blynk-library/src -I ./ -DLINUX
+CXXFLAGS += -I ../../blynk-library/linux -I ../../blynk-library/src -I ./ -DLINUX
 LDFLAGS += -lrt -lpthread -lpaho-mqtt3c
 
 ifeq ($(build),debug)
