@@ -12,12 +12,12 @@ CFLAGS = -Wall -g
 
 # define any directories containing header files other than /usr/include
 #
-INCLUDES = -I../../include -I../include -I../include -I../../../paho.mqtt.c-master/src -I../../../json-c
+INCLUDES = -I../../include -I../include -I../include -I../../../paho.mqtt.c/src -I../../../json-c
 
 # define library paths in addition to /usr/lib
 #   if I wanted to include libraries not in /usr/lib I'd specify
 #   their path using -Lpath, something like:
-LFLAGS = -L../lib -L../lib -L../../../paho.mqtt.c-master/build -L../../../json-c/json-c-build
+LFLAGS = -L../lib -L../lib -L../../../paho.mqtt.c/build -L../../../json-c/json-c-build
 
 # define any libraries to link into executable:
 #   if I want to link in libraries (libx.so or libx.a) I use the -llibname 
