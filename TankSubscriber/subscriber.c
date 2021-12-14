@@ -10,8 +10,8 @@
 #include "unistd.h"
 #include "MQTTClient.h"
 //#include "json.h"
-
-//#define ADDRESS     "tcp://localhost:1883"
+//const char *serverHostname = "raspberrypi"
+#define ADDRESS     "localhost:1883"
 //#define CLIENTID    "Tank Subscriber"
 //#define TOPIC       "Tank ESP"
 //#define PAYLOAD     "Hello World!"
@@ -22,10 +22,10 @@
 
 #define QOS         0
 #define TIMEOUT     10000L
-#define ADDRESS     "tcp://soldier.cloudmqtt.com:15599"
-#define mqttPort 15599 
-#define mqttUser "zerlcpdf"
-#define mqttPassword  "OyHBShF_g9ya" 
+//#define ADDRESS     "tcp://soldier.cloudmqtt.com:15599"
+//#define mqttPort 15599 
+//#define mqttUser "zerlcpdf"
+//#define mqttPassword  "OyHBShF_g9ya" 
 #define CLIENTID    "Tank Subscriber"
 #define TOPIC       "Tank ESP"
 #define PAYLOAD     "Hello World!"
@@ -863,8 +863,9 @@ int main(int argc, char* argv[])
         MQTTCLIENT_PERSISTENCE_NONE, NULL);
     conn_opts.keepAliveInterval = 20;
     conn_opts.cleansession = 1;
-    conn_opts.username = mqttUser;
-    conn_opts.password = mqttPassword;
+    //conn_opts.username = mqttUser;
+    //conn_opts.password = mqttPassword;
+    
     MQTTClient_setCallbacks(client, NULL,connlost, msgarrvd, delivered);
 
     if ((rc = MQTTClient_connect(client, &conn_opts)) != MQTTCLIENT_SUCCESS)
