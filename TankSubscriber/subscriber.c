@@ -24,7 +24,7 @@
 #define QOS         0
 #define TIMEOUT     10000L
 
-#define ADDRESS     "raspberrypi:1883" //Local RaspberryPI as MQTT Server
+#define ADDRESS     "192.168.1.154:1883" //Local RaspberryPI as MQTT Server
 #define CLIENTID    "Tank Subscriber"
 #define TOPIC       "Tank ESP"
 #define PAYLOAD     "Hello World!"
