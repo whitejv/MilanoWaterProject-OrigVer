@@ -35,7 +35,7 @@ static uint16_t port = 8442;
 //#define mqttUser "zerlcpdf"
 //#define mqttPassword  "OyHBShF_g9ya" 
 
-#define ADDRESS     "raspberrypi:1883"
+#define ADDRESS     "192.168.1.154:1883"
 #define CLIENTID    "Tank Blynker"
 #define TOPIC       "Tank Blynk"
 #define PAYLOAD     "Hello World!"
