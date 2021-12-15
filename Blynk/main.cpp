@@ -104,8 +104,8 @@ void setup_mqtt()
     }
     conn_opts.keepAliveInterval = 20;
     conn_opts.cleansession = 0;
-    conn_opts.username = mqttUser;
-    conn_opts.password = mqttPassword;
+    //conn_opts.username = mqttUser;
+    //conn_opts.password = mqttPassword;
     MQTTClient_setCallbacks(client, NULL,connlost, msgarrvd, delivered);
     printf("Is Client Already Connected: %d\n",MQTTClient_isConnected(client));
     if ((rc = MQTTClient_connect(client, &conn_opts)) != MQTTCLIENT_SUCCESS)
