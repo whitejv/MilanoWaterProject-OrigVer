@@ -29,13 +29,13 @@ static uint16_t port = 8442;
 #include <string.h>
 #include "MQTTClient.h"
 
-//#define ADDRESS     "tcp://localhost:1883"
-#define ADDRESS     "tcp://soldier.cloudmqtt.com:15599"
-#define mqttPort 15599 
-#define mqttUser "zerlcpdf"
-#define mqttPassword  "OyHBShF_g9ya" 
 
+//#define ADDRESS     "tcp://soldier.cloudmqtt.com:15599"
+//#define mqttPort 15599 
+//#define mqttUser "zerlcpdf"
+//#define mqttPassword  "OyHBShF_g9ya" 
 
+#define ADDRESS     "raspberrypi:1883"
 #define CLIENTID    "Tank Blynker"
 #define TOPIC       "Tank Blynk"
 #define PAYLOAD     "Hello World!"
