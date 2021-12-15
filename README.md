@@ -12,12 +12,20 @@ Install OpenSSL for C/C++ programs
 --> sudo apt-get install libssl-dev
 --> sudo apt-get install xutils-dev
 
-Install MQTT and Application Libraries
+Install Code Directory
+
+--> mkdir CodeDev
+
+Install MQTT and Update Config File and Application Libraries
 
 --> git clone https://github.com/eclipse/paho.mqtt.c.git
 --> cd paho.mqtt.c
 --> make
 --> sudo make install
+--> cd /etc/mosquitto
+--> sudo vi mosquitto.conf
+-->>> add: listener 1883
+-->>> add: allow_anonymous true
 
 Install Wiringpi (needed by Blynk)
 
