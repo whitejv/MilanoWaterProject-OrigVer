@@ -2,6 +2,7 @@
 #include <string.h>
 #include <Wire.h>
 #include <ESP8266WiFi.h>
+#include <IPAddress.h>
 #include <PubSubClient.h>
 
 char ssid[] = "ATT9LCV8fL_2.4"; //local wifi network SSID
@@ -11,16 +12,20 @@ char pass[] = "6jhz7ai7pqy5";   //local network password
 #define MCP3428XAddr 0x6f
 #define TMP100Addr   0x4f
 #define MCP23008Addr 0x20
-#define firmwareVer  0x8181
+#define firmwareVer  0x8002
 
-const char *mqttServer = "soldier.cloudmqtt.com";
-const int mqttPort = 15599;
-const char *mqttUser = "zerlcpdf";
-const char *mqttPassword = "OyHBShF_g9ya";
+IPAddress MQTT_BrokerIP(192, 168, 1, 154);
+const char *mqttServer = "raspberrypi.local";
+const int mqttPort = 1883;
+
+//const char *mqttServer = "soldier.cloudmqtt.com";
+//const int mqttPort = 15599;
+//const char *mqttUser = "zerlcpdf";
+//const char *mqttPassword = "OyHBShF_g9ya";
 
 WiFiClient espClient;
 
-PubSubClient client(espClient);
+PubSubClient client(MQTT_BrokerIP, mqttPort, espClient);
 
 unsigned int masterCounter = 0;
 
@@ -307,19 +312,20 @@ void setup()
 
    Wire.endTransmission(); // Stop I2C Transmission
 
-   client.setServer(mqttServer, mqttPort);
+   client.setServer(MQTT_BrokerIP, mqttPort);
    client.setCallback(callback);
 
    while (!client.connected())
    {
       printf("Connecting to MQTT.....");
-      if (client.connect("ESP8266Client", mqttUser, mqttPassword))
+      //if (client.connect("ESP8266Client", mqttUser, mqttPassword))
+      if (client.connect("ESP8266Client"))
       {
          printf("connected\n");
       }
       else
       {
-         printf("failed with state ");
+         printf("failed with ");
          printf("client state %d\n", client.state());
          delay(2000);
       }
