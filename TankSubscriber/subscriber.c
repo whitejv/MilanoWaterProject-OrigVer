@@ -10,11 +10,12 @@
 #include "unistd.h"
 #include "MQTTClient.h"
 //#include "json.h"
-//const char *serverHostname = "raspberrypi"
-#define ADDRESS     "localhost:1883"
-//#define CLIENTID    "Tank Subscriber"
-//#define TOPIC       "Tank ESP"
-//#define PAYLOAD     "Hello World!"
+
+/* Use below for free Cloud MQTT Server */
+//#define ADDRESS     "tcp://soldier.cloudmqtt.com:15599"
+//#define mqttPort 15599 
+//#define mqttUser "zerlcpdf"
+//#define mqttPassword  "OyHBShF_g9ya"
 
 #define THINGSBOARD_HOST "tcp://demo.thingsboard.io:1883"
 #define TB_ACCESS_TOKEN "DfOGk0Hhxl19rgmJvwf6"
@@ -22,10 +23,8 @@
 
 #define QOS         0
 #define TIMEOUT     10000L
-//#define ADDRESS     "tcp://soldier.cloudmqtt.com:15599"
-//#define mqttPort 15599 
-//#define mqttUser "zerlcpdf"
-//#define mqttPassword  "OyHBShF_g9ya" 
+
+#define ADDRESS     "localhost:1883" //Local RaspberryPI as MQTT Server
 #define CLIENTID    "Tank Subscriber"
 #define TOPIC       "Tank ESP"
 #define PAYLOAD     "Hello World!"
